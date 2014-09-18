@@ -22,16 +22,3 @@ post '/' do
 		file.puts "#{params[:task]} - #{params[:date]}"
 	end
 end
-
-
-
-# # define another route with some content that's then shown by the view
-# get '/99bottles' do
-#   # Ruby is fun because you can mix functional programming with imperative programming.
-#   # Here we specify a Range from 1 to 99, convert it into an Array, reverse the Array order,
-#   # then map a block to the Array that converts each Integer into a String using ruby string
-#   # interpolation (the #{} stuff)
-#   @lyrics = (1..99).to_a.reverse.map {|i| "#{i} bottles of beer on the wall, #{i} bottles of beer. Take one down, pass it around, #{i-1} bottles of beer on the wall."}
-#   # renter the views/bottles.erb template
-#   erb :bottles
-# end
