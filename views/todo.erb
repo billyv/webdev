@@ -2,7 +2,7 @@
 <p>
   <ul>
     <% @lines.each do |line| %>
-    <li><%= line[0] %> <% if line[1] %><em><%= line[1] %></em><% end %></li>
+    <li><%= line[0] %><% if line[1] %> - <em><%= line[1] %></em><% end %></li>
     <% end %>
   </ul>
   <br />
