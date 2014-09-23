@@ -1,10 +1,12 @@
-<h1><%= @title %></h1>
+<div id='list'>
+  <h1 id='listTitle'><%= @title %></h1>
   <ul>
     <% @lines.each do |line| %>
     <li><%= line[0] %><% if line[1] %> - <em><%= line[1] %></em><% end %></li>
     <% end %>
   </ul>
   <br />
+</div>
   <form action='/' method='POST'>
     <strong>New Task:</strong>
     <input type='text' name='task' placeholder='task content' />
