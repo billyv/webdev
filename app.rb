@@ -14,6 +14,7 @@ get '/' do
 	@lines = data.split("\n").map do |line|
 		line.split(' - ')
 	end
+	@title = @lines.shift[0]
 	erb :todo
 end
 

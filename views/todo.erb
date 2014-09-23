@@ -1,4 +1,4 @@
-<h1><%= @lines.shift %></h1>
+<h1><%= @title.tr(']["', '') %></h1>
   <ul>
     <% @lines.each do |line| %>
     <li><%= line[0] %><% if line[1] %> - <em><%= line[1] %></em><% end %></li>
