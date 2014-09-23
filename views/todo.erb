@@ -1,5 +1,4 @@
-<h1><% @lines.shift %></h1>
-<p>
+<h1><%= @lines.shift %></h1>
   <ul>
     <% @lines.each do |line| %>
     <li><%= line[0] %><% if line[1] %> - <em><%= line[1] %></em><% end %></li>
@@ -12,4 +11,3 @@
     <input type='text' name='date' placeholder='due date' />
     <input type='submit' value='Save' class="button" />
   </form>
-</p>
