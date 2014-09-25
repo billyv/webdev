@@ -20,6 +20,15 @@ background-color: #99BDB2;
   padding-left: 40px;
 }
 
+li {
+  list-style-type: square;
+  font-size: 10px;
+}
+
+li span {
+  font-size: 16px;
+}
+
 input[type='text'] {
 border 2px solid white;
 background-color: #A9CFC3;
@@ -30,7 +39,7 @@ body {
   max-width: 800px;
   margin: 32px 48px;
   color: white;
-  background-color: #090E0E;
+  background-color: #2E2D30; /* #43414A; */
 }
 
 code {

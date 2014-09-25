@@ -2,7 +2,7 @@
   <h1 id='listTitle'><%= @title %></h1>
   <ul>
     <% @lines.each do |line| %>
-    <li><%= line[0] %><% if line[1] %> - <em><%= line[1] %></em><% end %></li>
+    <li><span><%= line[0] %><% if line[1] %> - <em><%= line[1] %></em><% end %></span></li>
     <% end %>
   </ul>
   <br />
