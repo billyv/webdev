@@ -6,20 +6,23 @@ require 'rubygems'
 require 'bundler/setup'
 # load all of the gems in the gemfile
 Bundler.require
+# functionality of active record
+require './models/TodoItem'
+# set up active record for database
+ActiveRecord::Base.establish_connection(
+  :adapter  => 'sqlite3',
+  :database => 'db/development.db',
+  :encoding => 'utf8'
+)
+
 
 # define a route for the root of the site
 get '/' do
   # render the views/index.erb template
-	data = File.read('todolist.txt')
-	@lines = data.split("\n").map do |line|
-		line.split(' - ')
-	end
-	@title = @lines.shift[0]
+	@tasks = TodoItem.all.order(:due)
 	erb :todo
 end
 
 post '/' do
-	File.open('todolist.txt', 'a') do |file|
-		file.puts "#{params[:task]} - #{params[:date]}"
-	end
+	TodoItem.create(description: params[:task], due: params[:date])
 end

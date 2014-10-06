@@ -1,8 +1,8 @@
 <div id='list'>
   <h1 id='listTitle'><%= @title %></h1>
   <ul>
-    <% @lines.each do |line| %>
-    <li><span><%= line[0] %><% if line[1] %> - <em><%= line[1] %></em><% end %></span></li>
+    <% @tasks.each do |task| %>
+    <li><span><%= task.description %> - <em><% unless blank? task.due %></em><% end %></span></li>
     <% end %>
   </ul>
   <br />
