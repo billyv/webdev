@@ -25,4 +25,5 @@ end
 
 post '/' do
 	TodoItem.create(description: params[:task], due: params[:date])
+  redirect '/'
 end
