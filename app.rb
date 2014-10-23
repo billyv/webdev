@@ -24,6 +24,14 @@ get '/' do
 end
 
 post '/' do
-	TodoItem.create(description: params[:task], due: params[:date])
+	TodoItem.create(description: params[:task], due: params[:due])
   redirect '/'
+end
+
+# I couldn't get it to work without this, but I saw you showed Jon some way to do in class
+# I tried <% unless task.due.blank? %> and some variations on it, but no luck
+helpers do
+  def blank?(x)
+    x.nil? || x == ""
+  end
 end
