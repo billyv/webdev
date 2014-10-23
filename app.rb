@@ -35,6 +35,7 @@ end
 
 post '/delete' do
   TodoItem.find_by(task: params[:task]).destroy
+  redirect '/'
 end
 
 # I couldn't get it to work without this, but I saw you showed Jon some way to do in class
