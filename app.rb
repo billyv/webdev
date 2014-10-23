@@ -9,11 +9,16 @@ Bundler.require
 # functionality of active record
 require './models/TodoItem'
 # set up active record for database
-ActiveRecord::Base.establish_connection(
-  :adapter  => 'sqlite3',
-  :database => 'db/development.db',
-  :encoding => 'utf8'
-)
+if ENV['DATABASE_URL']
+  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+else
+  ActiveRecord::Base.establish_connection(
+    :adapter  => 'sqlite3',
+    :database => 'db/development.db',
+    :encoding => 'utf8'
+  )
+end
+
 
 
 # define a route for the root of the site
@@ -26,6 +31,10 @@ end
 post '/' do
 	TodoItem.create(description: params[:task], due: params[:due])
   redirect '/'
+end
+
+post '/delete' do
+  TodoItem.find_by(task: params[:task]).destroy
 end
 
 # I couldn't get it to work without this, but I saw you showed Jon some way to do in class
