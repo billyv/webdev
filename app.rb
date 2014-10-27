@@ -34,14 +34,6 @@ post '/' do
 end
 
 post '/delete' do
-  TodoItem.find_by(task: params[:task]).destroy
+  TodoItem.find_by(description: params[:task]).destroy
   redirect '/'
-end
-
-# I couldn't get it to work without this, but I saw you showed Jon some way to do in class
-# I tried <% unless task.due.blank? %> and some variations on it, but no luck
-helpers do
-  def blank?(x)
-    x.nil? || x == ""
-  end
 end

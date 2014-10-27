@@ -2,7 +2,8 @@
   <h1 id='listTitle'><%= @title %></h1>
   <ul>
     <% @tasks.each do |task| %>
-    <li><span><%= task.description %> - <em><% unless task.due.blank? %></em><% end %></span></li>
+
+    <li><span><%= task.description %> <em><% unless task.due.blank? %><%= '- ' + task.due %><% end %></em></span></li>
     <% end %>
   </ul>
   <br />
@@ -18,4 +19,4 @@
     <strong>Delete:</strong>
     <input type='text' name='task' placeholder='task' />
     <input type='submit' value='Save' class="button" />
-  </form> 
+  </form>
