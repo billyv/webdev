@@ -33,7 +33,7 @@ post '/' do
   redirect '/'
 end
 
-post '/delete' do
-  TodoItem.find_by(description: params[:task]).destroy
+get '/delete/:id' do
+  TodoItem.find_by(id: params[:id]).destroy
   redirect '/'
 end
