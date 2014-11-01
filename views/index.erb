@@ -1,0 +1,14 @@
+<div id='list'>
+  <h1 id='listTitle'>Users</h1>
+  <ul>
+    <% @users.each do |user| %>
+    <li><span><a href='/<%= user.name %>' > <%= user.name %> </a></span></li>
+    <% end %>
+  </ul>
+  <br />
+</div>
+  <form action='/' method='POST'>
+    <strong>New User:</strong>
+    <input type='text' name='name' placeholder='user name' />
+    <input type='submit' value='Save' class="button" />
+  </form>
