@@ -2,7 +2,7 @@
   <h1 id='listTitle'><%= @title %></h1>
   <ul>
     <% @tasks.each do |task| %>
-    <form action='/<%= user.name %>/delete/<%= task.id %>' style='display:inline'>
+    <form action='/<%= @user.name %>/delete/<%= task.id %>' style='display:inline'>
       <input type='submit' value='Delete' />
     </form>
     <li><span><%= task.description %> <em><% unless task.due.blank? %><%= '- ' + task.due %><% end %></em></span></li>
@@ -10,9 +10,14 @@
   </ul>
   <br />
 </div>
-  <form action='/<%= user.name %>' method='POST'>
+  <form action='/<%= @user.name %>' method='POST'>
     <strong>New Task:</strong>
     <input type='text' name='task' placeholder='task content' />
     <input type='text' name='due' placeholder='due date' />
     <input type='submit' value='Save' class="button" />
   </form>
+<br />
+<br />
+<div>
+  <a href='/'>User List</a>
+</div>

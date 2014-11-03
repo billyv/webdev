@@ -2,6 +2,9 @@
   <h1 id='listTitle'>Users</h1>
   <ul>
     <% @users.each do |user| %>
+    <form action='/<%= user.name %>/delete' style='display:inline'>
+      <input type='submit' value='Delete' />
+    </form>
     <li><span><a href='/<%= user.name %>' > <%= user.name %> </a></span></li>
     <% end %>
   </ul>

@@ -35,7 +35,7 @@ post '/' do
 end
 
 get '/:name' do
-  @user = TodoUser.find(name: params[:name])
+  @user = TodoUser.find_by(name: params[:name])
   @tasks = @user.todo_items.order(:due)
   erb :todo_list
 end
@@ -44,6 +44,11 @@ post '/:name' do
   userID = TodoUser.find_by(name: params[:name]).id
 	TodoItem.create(description: params[:task], due: params[:due], todo_user_id: userID)
   redirect "/#{params[:name]}"
+end
+
+get '/:name/delete' do
+  TodoUser.find_by(name: params[:name]).destroy
+  redirect '/'
 end
 
 get '/:name/delete/:id' do
